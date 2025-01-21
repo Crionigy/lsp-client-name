@@ -21,7 +21,7 @@ M.lsp_client_name = function()
     if filetypes and vim.fn.index(filetypes, buffer_filetype) ~= -1 then
       local name = client.name
 
-      table.insert(client_names, name)
+      table.insert(client_names, tostring(name))
     end
   end
 
