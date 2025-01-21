@@ -5,8 +5,7 @@ M.init = function(self, options)
 end
 
 M.lsp_client_name = function()
-  local sign = "★"
-  local result = sign
+  local result = ""
   local client_names = {}
   local clients = vim.lsp.get_active_clients()
   local buffer_filetype = vim.api.nvim_buf_get_option(0, "filetype")
@@ -27,7 +26,7 @@ M.lsp_client_name = function()
 
   if #client_names > 0 then
     table.sort(client_names, function(a, b) return #a < #b end)
-    result = table.concat(client_names, " | ") .. " " .. sign
+    result = table.concat(client_names, " | ")
   end
 
   return result
